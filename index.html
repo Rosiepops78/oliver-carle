@@ -106,24 +106,6 @@
     margin-top:20px;
     letter-spacing:0.01em;
   }
-  .hero-rule{
-    margin-top:44px;
-    display:flex;
-    align-items:center;
-    gap:18px;
-  }
-  .hero-rule .bar{
-    height:1px;
-    width:64px;
-    background:var(--brass);
-  }
-  .hero-rule span{
-    font-size:13px;
-    color:var(--steel);
-    font-style:italic;
-    font-family:var(--serif);
-  }
-
   /* ===== Profile ===== */
   .profile{
     padding:96px 0;
@@ -311,6 +293,8 @@
   /* ===== Contact ===== */
   .contact{
     padding:100px 0 70px;
+  }
+  .contact-inner{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:40px;
@@ -370,7 +354,8 @@
     .doc{ grid-template-columns:56px 1fr; padding:26px 0; }
     .doc-meta{ display:none; }
     .doc-placeholder{ grid-template-columns:56px 1fr; }
-    .contact{ grid-template-columns:1fr; gap:36px; padding:70px 0 50px; }
+    .contact{ padding:70px 0 50px; }
+    .contact-inner{ grid-template-columns:1fr; gap:36px; }
     nav{ gap:18px; }
     .masthead-name{ font-size:16px; }
   }
@@ -403,10 +388,6 @@
     <span class="eyebrow">Communications &amp; Public Affairs</span>
     <h1>Oliver Carlé</h1>
     <div class="role">Senior Communications Manager</div>
-    <div class="hero-rule">
-      <div class="bar"></div>
-      <span>Strategic communications across public and private sector organisations</span>
-    </div>
   </div>
 </section>
 
@@ -502,16 +483,11 @@
       </div>
     </a>
 
-    <div class="doc-placeholder">
-      <div class="doc-ref">Doc. 05</div>
-      <p>Additional work samples to be added.</p>
-    </div>
-
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <div class="wrap" style="display:contents;">
+  <div class="wrap contact-inner">
     <h2>Let's start<br>a conversation.</h2>
     <div class="contact-links">
       <a href="mailto:olivercarle@gmail.com">
