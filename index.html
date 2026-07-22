@@ -132,32 +132,66 @@
   }
   .profile .body-col p + p{ margin-top:22px; }
 
-  .tags{
-    margin-top:44px;
+  .capabilities{
+    margin-top:52px;
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(210px, 1fr));
-    gap:10px 16px;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:40px 32px;
   }
-  .tag{
-    font-size:13px;
-    font-weight:500;
-    padding:12px 16px;
-    border:1px solid var(--line);
-    border-radius:2px;
+  .cap-heading{
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass);
+    padding-bottom:12px;
+    margin-bottom:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .cap-list{
+    list-style:none;
+  }
+  .cap-list li{
+    font-size:14.5px;
     color:var(--ink-soft);
-    letter-spacing:0.01em;
+    padding:7px 0 7px 16px;
     position:relative;
-    padding-left:26px;
+    line-height:1.4;
   }
-  .tag::before{
+  .cap-list li::before{
     content:"";
     position:absolute;
-    left:14px;
-    top:50%;
-    transform:translateY(-50%);
+    left:0;
+    top:15px;
     width:5px;
     height:5px;
-    background:var(--brass);
+    background:var(--steel);
+  }
+  .cap-group--highlight{
+    grid-column:1 / -1;
+    display:flex;
+    align-items:center;
+    gap:28px;
+    padding:22px 26px;
+    background:var(--paper-dim);
+    border-left:2px solid var(--brass);
+  }
+  .cap-group--highlight .cap-heading{
+    border-bottom-color:transparent;
+    padding-bottom:0;
+    margin-bottom:0;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .cap-note{
+    margin-top:0;
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:300;
+    font-size:14.5px;
+    line-height:1.55;
+    color:var(--ink-soft);
   }
 
   /* ===== Work / Dossier ===== */
@@ -244,21 +278,16 @@
   }
 
   .doc-media{
-    display:block;
+    display:grid;
+    grid-template-columns:90px 1fr auto;
+    align-items:start;
+    gap:28px;
     cursor:default;
   }
   .doc-media:hover{ background:none; }
   .doc-media .doc-title{ margin-bottom:6px; }
   .doc-media .doc-desc{ margin-bottom:22px; }
-  .doc-media .doc-ref{
-    display:inline-block;
-    margin-bottom:10px;
-  }
-  .doc-media .doc-meta{
-    flex-direction:row;
-    padding-top:0;
-    margin-bottom:18px;
-  }
+  .doc-media .doc-meta{ padding-top:6px; }
 
   .video-embed{
     position:relative;
@@ -272,6 +301,10 @@
     top:0; left:0;
     width:100%;
     height:100%;
+  }
+  .video-embed--yt{
+    max-width:560px;
+    aspect-ratio:16 / 9;
   }
 
   .doc-placeholder{
@@ -348,7 +381,8 @@
     .hero{ padding:80px 0 60px; }
     .profile{ padding:64px 0; }
     .profile .label-row{ flex-direction:column; gap:6px; margin-bottom:26px; }
-    .tags{ grid-template-columns:1fr 1fr; }
+    .capabilities{ grid-template-columns:1fr 1fr; gap:32px 20px; }
+    .cap-group--highlight{ flex-direction:column; align-items:flex-start; gap:10px; }
     .work{ padding:64px 0 30px; }
     .work-head{ flex-direction:column; align-items:flex-start; }
     .doc{ grid-template-columns:56px 1fr; padding:26px 0; }
@@ -400,22 +434,42 @@
     <div class="body-col">
       <p>Communications professional with experience delivering strategic communications across complex public and private sector organisations. Skilled in developing high-impact campaigns, managing complex stakeholder environments, and delivering clear, engaging messaging across digital, media, and executive channels.</p>
       <p>Known for translating complex subject matter into accessible narratives, building trusted relationships across government and community stakeholders, and delivering communications that drive engagement and real-world outcomes.</p>
-      <div class="tags">
-        <span class="tag">Communications Strategy</span>
-        <span class="tag">Media Relations</span>
-        <span class="tag">Change Communications</span>
-        <span class="tag">Stakeholder Relations</span>
-        <span class="tag">Team Management &amp; Influence</span>
-        <span class="tag">Māori Engagement &amp; Cultural Advisory</span>
-        <span class="tag">Digital Communications</span>
-        <span class="tag">Event &amp; Workshop Leadership</span>
-        <span class="tag">Executive &amp; Board Engagement</span>
-        <span class="tag">Problem Solving</span>
-        <span class="tag">Public Engagement</span>
-        <span class="tag">Video &amp; Content Production</span>
-        <span class="tag">Design</span>
-        <span class="tag">Copywriting &amp; Editing</span>
+
+      <div class="capabilities">
+        <div class="cap-group">
+          <h3 class="cap-heading">Strategy &amp; Leadership</h3>
+          <ul class="cap-list">
+            <li>Communications Strategy</li>
+            <li>Executive &amp; Board Engagement</li>
+            <li>Change Communications</li>
+            <li>Team Management &amp; Influence</li>
+          </ul>
+        </div>
+        <div class="cap-group">
+          <h3 class="cap-heading">Media &amp; Engagement</h3>
+          <ul class="cap-list">
+            <li>Media Relations</li>
+            <li>Stakeholder Relations</li>
+            <li>Public Engagement</li>
+            <li>Event &amp; Workshop Leadership</li>
+          </ul>
+        </div>
+        <div class="cap-group">
+          <h3 class="cap-heading">Content &amp; Production</h3>
+          <ul class="cap-list">
+            <li>Digital Communications</li>
+            <li>Video &amp; Content Production</li>
+            <li>Design</li>
+            <li>Copywriting &amp; Editing</li>
+            <li>Problem Solving</li>
+          </ul>
+        </div>
+        <div class="cap-group cap-group--highlight">
+          <h3 class="cap-heading">Cultural &amp; Community Advisory</h3>
+          <p class="cap-note">Brings lived cultural insight into stakeholder and public-facing communications, advising at an organisational level on Māori engagement and kaupapa protocols.</p>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -471,8 +525,26 @@
       </div>
     </div>
 
-    <a class="doc" href="https://www.nzblood.co.nz/assets/Uploads/13171-2024-25-Annual-Report-FA1-DIGITAL-DPS.pdf" target="_blank" rel="noopener noreferrer">
+    <div class="doc doc-media">
       <div class="doc-ref">Doc. 04</div>
+      <div>
+        <div class="doc-title">Organ Donation New Zealand — "Wiremu's Story"</div>
+        <div class="doc-desc">Recipient story video planned and produced for ODNZ's donor storytelling series, sharing a heart transplant recipient's journey to support public awareness of organ donation.</div>
+        <div class="video-embed video-embed--yt">
+          <iframe src="https://www.youtube.com/embed/eHMjNwUHRME"
+            title="Wiremu's Story"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <span class="doc-type">Video · Story</span>
+      </div>
+    </div>
+
+    <a class="doc" href="https://www.nzblood.co.nz/assets/Uploads/13171-2024-25-Annual-Report-FA1-DIGITAL-DPS.pdf" target="_blank" rel="noopener noreferrer">
+      <div class="doc-ref">Doc. 05</div>
       <div>
         <div class="doc-title">New Zealand Blood Service — Annual Report 2024/25</div>
         <div class="doc-desc">Organisation-wide annual report; contributed as co-writer, translating complex operational and clinical outcomes into a clear, stakeholder-facing narrative.</div>
